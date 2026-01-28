@@ -287,7 +287,9 @@
     </nav>
 
     <script>
-        const MOVES = [
+        const STORAGE_KEY = 'thaiFlowData_June_Final_v4';
+
+        const DEFAULT_MOVES = [
             { phase: "Phase 1: Now – March 31", tasks: [
                 { id: 101, title: "Cooking School Enrollment", desc: "Pay deposit, secure DTV Acceptance Letter.", done: false },
                 { id: 102, title: "Financial Verification", desc: "Maintain ~$15,625 (500k THB @ 0.032) balance in account.", done: false },
@@ -314,9 +316,12 @@
 
         function getStorage() {
             try {
-                const data = localStorage.getItem('thaiFlowData_June_Final');
-                return data ? JSON.parse(data) : MOVES;
-            } catch (e) { return MOVES; }
+                const data = localStorage.getItem(STORAGE_KEY);
+                return data ? JSON.parse(data) : DEFAULT_MOVES;
+            } catch (e) { 
+                console.error("Local Storage access failed:", e);
+                return DEFAULT_MOVES; 
+            }
         }
 
         let userTasks = getStorage();
@@ -336,13 +341,19 @@
                 phase.tasks.forEach(task => {
                     const item = document.createElement('div');
                     item.className = `timeline-item ${task.done ? 'done' : ''}`;
-                    item.innerHTML = `<div class="timeline-dot"></div><div class="task-card" onclick="toggleTask(${task.id})"><h3 style="margin:0; font-size:14px;">${task.title}</h3><p style="margin:4px 0 0 0; font-size:11px; opacity: 0.5;">${task.desc}</p></div>`;
+                    item.innerHTML = `
+                        <div class="timeline-dot"></div>
+                        <div class="task-card" onclick="toggleTask(${task.id})">
+                            <h3 style="margin:0; font-size:14px;">${task.title}</h3>
+                            <p style="margin:4px 0 0 0; font-size:11px; opacity: 0.5;">${task.desc}</p>
+                        </div>`;
                     tCont.appendChild(item);
                 });
                 container.appendChild(tCont);
             });
             updateProgress();
-            try { localStorage.setItem('thaiFlowData_June_Final', JSON.stringify(userTasks)); } catch (e) {}
+            // Save state on every render
+            try { localStorage.setItem(STORAGE_KEY, JSON.stringify(userTasks)); } catch (e) {}
         }
 
         function toggleTask(id) {
