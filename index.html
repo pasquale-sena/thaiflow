@@ -128,8 +128,30 @@
             padding: 12px;
             cursor: pointer;
             transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .task-card:active { transform: scale(0.98); background: rgba(255,255,255,0.05); }
+
+        .action-link-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--primary);
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        .action-link-btn:active {
+            background: var(--primary);
+            color: black;
+        }
 
         .phase-header {
             font-size: 10px;
@@ -189,7 +211,7 @@
         <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem;">
             <div>
                 <h1 style="font-size: 1.5rem; font-weight: 900; margin: 0;">Thai <span style="color: var(--primary)">Flow</span></h1>
-                <div style="font-size: 10px; letter-spacing: 2px; color: var(--text-muted); margin-top: 4px; font-weight: bold; text-transform: uppercase;">June 1st Arrival Mission</div>
+                <div style="font-size: 10px; letter-spacing: 2px; color: var(--text-muted); margin-top: 4px; font-weight: bold; text-transform: uppercase;">June 1st Mission</div>
             </div>
             <div class="countdown-pill" aria-label="Countdown to June 1st">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -262,7 +284,7 @@
             </a>
             <a href="https://thaievisa.go.th/visa/dtv-visa" target="_blank" class="card" style="text-decoration: none; color: white; display: flex; align-items: center; gap: 15px;">
                 <div style="color: var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line></svg></div>
-                <div><div style="font-weight: bold;">DTV Specific Visa Info</div><div style="font-size: 11px; opacity: 0.5;">Embassy: The Hague</div></div>
+                <div><div style="font-weight: bold;">DTV Official Visa Portal</div><div style="font-size: 11px; opacity: 0.5;">Apply to The Hague</div></div>
             </a>
             <a href="https://th.usembassy.gov/" target="_blank" class="card" style="text-decoration: none; color: white; display: flex; align-items: center; gap: 15px;">
                 <div style="color: var(--secondary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
@@ -287,26 +309,26 @@
     </nav>
 
     <script>
-        const STORAGE_KEY = 'thaiFlowData_June_Final_v4';
+        const STORAGE_KEY = 'thaiFlowData_June_Final_v6';
 
         const DEFAULT_MOVES = [
             { phase: "Phase 1: Now – March 31", tasks: [
-                { id: 101, title: "Cooking School Enrollment", desc: "Pay deposit, secure DTV Acceptance Letter.", done: false },
-                { id: 102, title: "Financial Verification", desc: "Maintain ~$15,625 (500k THB @ 0.032) balance in account.", done: false },
-                { id: 103, title: "Cat Medical Audit", desc: "Check 15-digit ISO chip & Rabies/FPV validity.", done: false }
+                { id: 101, title: "Cooking School Enrollment", desc: "Pay deposit, secure DTV Acceptance Letter.", done: false, link: "https://www.houseoftastecooking.com/dtv-5-year-visa/" },
+                { id: 102, title: "Financial Verification", desc: "Maintain ~$15,625 (500k THB @ 0.032) in account.", done: false },
+                { id: 103, title: "Cat Medical Audit", desc: "Amsterdam Vet clinical check & Rabies check.", done: false, link: "https://www.dierenkliniekdockland.com/" }
             ]},
             { phase: "Phase 2: April 1 – April 15", tasks: [
-                { id: 201, title: "DTV E-Visa Application", desc: "Upload US/ITA Passport & NL Residence permit.", done: false },
+                { id: 201, title: "DTV E-Visa Application", desc: "Apply via The Hague portal (EU Residency).", done: false, link: "https://thaievisa.go.th/visa/dtv-visa" },
                 { id: 202, title: "Book Flight (Schiphol)", desc: "KLM or EVA Air. Confirm cat space immediately.", done: false }
             ]},
             { phase: "Phase 3: Early May", tasks: [
-                { id: 301, title: "Pet Import Permit", desc: "Email qsap_bkk_import@dld.go.th with flight details.", done: false },
-                { id: 302, title: "Housing Search", desc: "Target Ari/On Nut pet-friendly units (Max 30k THB).", done: false }
+                { id: 301, title: "Pet Import Permit", desc: "Official guide for bringing pets into Thailand.", done: false, link: "https://thaiembassy.se/pet-travel-bringing-pets-into-thailand/" },
+                { id: 302, title: "Housing Search", desc: "Target Ari/On Nut pet-friendly units (Max 30k THB).", done: false, link: "https://www.ddproperty.com/en/condo-for-rent/in-bangkok-th10/pet-friendly" }
             ]},
             { phase: "Phase 4: May 20 – May 28", tasks: [
-                { id: 401, title: "Vet & NVWA Stamps", desc: "Clinical exam & NVWA export endorsement.", done: false },
-                { id: 402, title: "Print Entry Bundle", desc: "DTV, VA Letter, Bank Statement, & Permits.", done: false },
-                { id: 403, title: "Digital Arrival Card", desc: "Complete TDAC online 48h before flight.", done: false }
+                { id: 401, title: "NVWA Endorsement", desc: "Official export endorsement at NVWA Amsterdam.", done: false, link: "https://www.nvwa.nl/onderwerpen/reizen-met-uw-huisdier" },
+                { id: 402, title: "Entry Bundle Prep", desc: "Print DTV, VA Letter, Bank Statement, & Permits.", done: false },
+                { id: 403, title: "Digital Arrival Card", desc: "Complete Thailand Arrival Card 48h before flight.", done: false, link: "https://www.thailandevisa.org/thailand-arrival-card/" }
             ]},
             { phase: "Phase 5: June 1st Arrival", tasks: [
                 { id: 501, title: "Verify 180-Day Stamp", desc: "Ensure Immigration uses DTV for full stay.", done: false },
@@ -318,10 +340,7 @@
             try {
                 const data = localStorage.getItem(STORAGE_KEY);
                 return data ? JSON.parse(data) : DEFAULT_MOVES;
-            } catch (e) { 
-                console.error("Local Storage access failed:", e);
-                return DEFAULT_MOVES; 
-            }
+            } catch (e) { return DEFAULT_MOVES; }
         }
 
         let userTasks = getStorage();
@@ -341,18 +360,31 @@
                 phase.tasks.forEach(task => {
                     const item = document.createElement('div');
                     item.className = `timeline-item ${task.done ? 'done' : ''}`;
-                    item.innerHTML = `
+                    
+                    let taskHtml = `
                         <div class="timeline-dot"></div>
                         <div class="task-card" onclick="toggleTask(${task.id})">
-                            <h3 style="margin:0; font-size:14px;">${task.title}</h3>
-                            <p style="margin:4px 0 0 0; font-size:11px; opacity: 0.5;">${task.desc}</p>
-                        </div>`;
+                            <div style="flex: 1;">
+                                <h3 style="margin:0; font-size:14px;">${task.title}</h3>
+                                <p style="margin:4px 0 0 0; font-size:11px; opacity: 0.5;">${task.desc}</p>
+                            </div>
+                    `;
+
+                    if (task.link) {
+                        taskHtml += `
+                            <div class="action-link-btn" onclick="event.stopPropagation(); window.open('${task.link}', '_blank')">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </div>
+                        `;
+                    }
+
+                    taskHtml += `</div>`;
+                    item.innerHTML = taskHtml;
                     tCont.appendChild(item);
                 });
                 container.appendChild(tCont);
             });
             updateProgress();
-            // Save state on every render
             try { localStorage.setItem(STORAGE_KEY, JSON.stringify(userTasks)); } catch (e) {}
         }
 
@@ -381,8 +413,7 @@
                 document.getElementById('daysLeft').innerText = Math.floor(diff / 86400000);
                 document.getElementById('hoursLeft').innerText = Math.floor((diff % 86400000) / 3600000);
             }
-            update();
-            setInterval(update, 1000);
+            update(); setInterval(update, 1000);
         }
 
         async function updateLiveRate() {
