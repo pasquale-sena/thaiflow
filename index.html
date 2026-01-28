@@ -211,7 +211,7 @@
         <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem;">
             <div>
                 <h1 style="font-size: 1.5rem; font-weight: 900; margin: 0;">Thai <span style="color: var(--primary)">Flow</span></h1>
-                <div style="font-size: 10px; letter-spacing: 2px; color: var(--text-muted); margin-top: 4px; font-weight: bold; text-transform: uppercase;">June 1st Mission</div>
+                <div style="font-size: 10px; letter-spacing: 2px; color: var(--text-muted); margin-top: 4px; font-weight: bold; text-transform: uppercase;">June 1st Arrival Mission</div>
             </div>
             <div class="countdown-pill" aria-label="Countdown to June 1st">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
@@ -258,9 +258,15 @@
                 <div><div style="font-weight: bold;">Ari / Phra Khanong / On Nut</div><div style="font-size: 12px; color: var(--text-muted);">Highly recommended for cats.</div></div>
                 <div style="font-size: 10px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px;" class="font-mono">BTS Ready</div>
             </div>
+            
+            <div class="phase-header">Search Portals</div>
+            <a href="https://propertyhub.in.th/en/condo-for-rent/bangkok/pet-friendly" target="_blank" class="card" style="text-decoration: none; color: var(--accent); font-weight: bold; border-color: var(--accent); display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 0.75rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Search on PropertyHub
+            </a>
             <a href="https://www.ddproperty.com/en/condo-for-rent/in-bangkok-th10/pet-friendly" target="_blank" class="card" style="text-decoration: none; color: var(--accent); font-weight: bold; border-color: var(--accent); display: flex; align-items: center; gap: 8px; justify-content: center;">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                Live Pet-Friendly Listings
+                Search on DDProperty
             </a>
         </div>
 
@@ -277,19 +283,6 @@
                     <div id="rateDisplay" style="font-size: 10px; opacity: 0.5; margin-top: 8px;">Rate: 1 THB ≈ $0.0320</div>
                 </div>
             </div>
-            <div class="phase-header">Important Move Links</div>
-            <a href="https://www.va.gov/records/get-military-service-records/" target="_blank" class="card" style="text-decoration: none; color: white; display: flex; align-items: center; gap: 15px;">
-                <div style="color: #f472b6;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
-                <div><div style="font-weight: bold;">VA Records (100% P&T)</div><div style="font-size: 11px; opacity: 0.5;">Download Benefit Letter</div></div>
-            </a>
-            <a href="https://thaievisa.go.th/visa/dtv-visa" target="_blank" class="card" style="text-decoration: none; color: white; display: flex; align-items: center; gap: 15px;">
-                <div style="color: var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line></svg></div>
-                <div><div style="font-weight: bold;">DTV Official Visa Portal</div><div style="font-size: 11px; opacity: 0.5;">Apply to The Hague</div></div>
-            </a>
-            <a href="https://th.usembassy.gov/" target="_blank" class="card" style="text-decoration: none; color: white; display: flex; align-items: center; gap: 15px;">
-                <div style="color: var(--secondary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg></div>
-                <div><div style="font-weight: bold;">US Embassy Bangkok</div><div style="font-size: 11px; opacity: 0.5;">American Citizen Services</div></div>
-            </a>
         </div>
     </main>
 
@@ -309,30 +302,29 @@
     </nav>
 
     <script>
-        const STORAGE_KEY = 'thaiFlowData_June_Final_v6';
+        const STORAGE_KEY = 'thaiFlowData_June_Final_v10';
 
         const DEFAULT_MOVES = [
             { phase: "Phase 1: Now – March 31", tasks: [
                 { id: 101, title: "Cooking School Enrollment", desc: "Pay deposit, secure DTV Acceptance Letter.", done: false, link: "https://www.houseoftastecooking.com/dtv-5-year-visa/" },
-                { id: 102, title: "Financial Verification", desc: "Maintain ~$15,625 (500k THB @ 0.032) in account.", done: false },
                 { id: 103, title: "Cat Medical Audit", desc: "Amsterdam Vet clinical check & Rabies check.", done: false, link: "https://www.dierenkliniekdockland.com/" }
             ]},
             { phase: "Phase 2: April 1 – April 15", tasks: [
                 { id: 201, title: "DTV E-Visa Application", desc: "Apply via The Hague portal (EU Residency).", done: false, link: "https://thaievisa.go.th/visa/dtv-visa" },
-                { id: 202, title: "Book Flight (Schiphol)", desc: "KLM or EVA Air. Confirm cat space immediately.", done: false }
+                { id: 202, title: "Book Flight & Reserve Cat Space", desc: "You can do this via MyTrip in the KLM app.", done: false }
             ]},
             { phase: "Phase 3: Early May", tasks: [
-                { id: 301, title: "Pet Import Permit", desc: "Official guide for bringing pets into Thailand.", done: false, link: "https://thaiembassy.se/pet-travel-bringing-pets-into-thailand/" },
-                { id: 302, title: "Housing Search", desc: "Target Ari/On Nut pet-friendly units (Max 30k THB).", done: false, link: "https://www.ddproperty.com/en/condo-for-rent/in-bangkok-th10/pet-friendly" }
+                { id: 301, title: "Pet Import Permit", desc: "Official guide for bringing pets into Thailand.", done: false, link: "https://hague.thaiembassy.org/th/publicservice/bringing-pets-to-thailand" },
+                { id: 302, title: "Housing Search", desc: "Target Ari/On Nut pet-friendly units (Max 30k THB).", done: false, link: "https://propertyhub.in.th/en/condo-for-rent/bangkok/pet-friendly" }
             ]},
             { phase: "Phase 4: May 20 – May 28", tasks: [
-                { id: 401, title: "NVWA Endorsement", desc: "Official export endorsement at NVWA Amsterdam.", done: false, link: "https://www.nvwa.nl/onderwerpen/reizen-met-uw-huisdier" },
+                { id: 401, title: "NVWA Endorsement", desc: "Get mandatory export endorsement at NVWA.", done: false, link: "https://www.nvwa.nl/onderwerpen/op-reis-met-mijn-huisdier/dier-mee-naar-land-buiten-eu/legalisatie" },
                 { id: 402, title: "Entry Bundle Prep", desc: "Print DTV, VA Letter, Bank Statement, & Permits.", done: false },
-                { id: 403, title: "Digital Arrival Card", desc: "Complete Thailand Arrival Card 48h before flight.", done: false, link: "https://www.thailandevisa.org/thailand-arrival-card/" }
+                { id: 403, title: "Digital Arrival Card", desc: "Complete Thailand Arrival Card 48h before flight.", done: false, link: "https://tdac.immigration.go.th/arrival-card/#/home" }
             ]},
             { phase: "Phase 5: June 1st Arrival", tasks: [
                 { id: 501, title: "Verify 180-Day Stamp", desc: "Ensure Immigration uses DTV for full stay.", done: false },
-                { id: 502, title: "Animal Quarantine", desc: "Go to Belt 8. Pay 500 THB cash for cat entry.", done: false }
+                { id: 502, title: "Animal Quarantine (Belt 8)", desc: "Go to Belt 8. Pay 500 THB cash for cat entry.", done: false }
             ]}
         ];
 
